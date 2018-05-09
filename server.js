@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const path = require("path");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
+
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,8 +18,7 @@ app.use(routes);
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist",
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/userDB",
   // {
   //   useMongoClient: true
   // }

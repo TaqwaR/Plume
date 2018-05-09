@@ -3,7 +3,7 @@ const db = require('../models');
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/userlist",
+  process.env.MONGODB_URI || "mongodb://localhost/userDB",
   {
     // useMongoClient: true
   }
@@ -11,44 +11,29 @@ mongoose.connect(
 
 const userSeed = [
   {
-    username: "Taqwa",
-    password: "12345",
-    email: "taqwa@plume.com",
-    signupDate: new Date(Date.now()),
+    name: "Taqwa",
     skill: "beekeeping",
-    isDeleted: { type: Boolean, default: false }
+    location: "Berlin, Germany"
   },
   {
-    username: "Li_C",
-    password: "12345",
-    email: "li@plume.com",
-    signupDate: new Date(Date.now()),
-    skill: "beekeeping",
-    isDeleted: { type: Boolean, default: false }
+    name: "Li_C",
+    skill: "DJing",
+    location: "Rockville, MD"
   },
   {
-    username: "Maria",
-    password: "12345",
-    email: "maria@plume.com",
-    signupDate: new Date(Date.now()),
-    skill: "beekeeping",
-    isDeleted: { type: Boolean, default: false }
+    name: "Maria",
+    skill: "Public Speaking",
+    location: "Washington, DC"
   },
   {
-    username: "Dan",
-    password: "12345",
-    email: "dan@plume.com",
-    signupDate: new Date(Date.now()),
-    skill: "beekeeping",
-    isDeleted: { type: Boolean, default: false }
+    name: "Dan",
+    skill: "herbologist",
+    location: "Arlington, VA"
   },
   {
-    username: "Amber",
-    password: "12345",
-    email: "amber@plume.com",
-    signupDate: new Date(Date.now()),
-    skill: "beekeeping",
-    isDeleted: { type: Boolean, default: false }
+    name: "Amber",
+    skill: "graphic design",
+    location: "Centerville, VA"
   }
 ];
 
@@ -57,7 +42,7 @@ db.User
   .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data);
-    // console.log(data.insertIds.length + " users inserted!");
+    console.log(data.insertIds.length + " users inserted!");
     process.exit(0);
   })
   .catch(err => {

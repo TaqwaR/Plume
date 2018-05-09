@@ -1,14 +1,15 @@
 {
-  "name": "mern",
+  "name": "Plume",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "Skill sharing app.",
   "main": "server.js",
   "scripts": {
     "server": "node server.js",
     "client": "node scripts/start-client.js",
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "build": "node scripts/build.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node scripts/seedDB.js"
   },
   "author": "",
   "license": "ISC",
