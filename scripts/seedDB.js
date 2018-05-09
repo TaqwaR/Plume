@@ -13,27 +13,33 @@ const userSeed = [
   {
     name: "Taqwa",
     skill: "beekeeping",
-    location: "Berlin, Germany"
+    location: "Berlin, Germany",
+    image: "https://media.giphy.com/media/26vUzxFHrLdt225UI/giphy.gif"
   },
   {
     name: "Li_C",
     skill: "DJing",
-    location: "Rockville, MD"
+    location: "Rockville, MD",
+    image: "https://media.giphy.com/media/26vUzxFHrLdt225UI/giphy.gif"
   },
   {
     name: "Maria",
     skill: "Public Speaking",
-    location: "Washington, DC"
+    location: "Washington, DC",
+    image: "https://media.giphy.com/media/26vUzxFHrLdt225UI/giphy.gif"
   },
   {
     name: "Dan",
     skill: "herbologist",
-    location: "Arlington, VA"
+    location: "Arlington, VA",
+    image: "https://media.giphy.com/media/26vUzxFHrLdt225UI/giphy.gif"
+
   },
   {
     name: "Amber",
     skill: "graphic design",
-    location: "Centerville, VA"
+    location: "Centerville, VA",
+    image: "https://media.giphy.com/media/26vUzxFHrLdt225UI/giphy.gif"
   }
 ];
 
