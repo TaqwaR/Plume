@@ -3,10 +3,10 @@ const db = require('../models');
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/userDB",
-  {
-    // useMongoClient: true
-  }
+  process.env.MONGODB_URI || "mongodb://localhost/userDB"
+  // {
+  //   // useMongoClient: true
+  // }
 )
 
 const userSeed = [
@@ -42,7 +42,7 @@ db.User
   .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data);
-    console.log(data.insertIds.length + " users inserted!");
+    console.log(data.result.n + " users inserted!");
     process.exit(0);
   })
   .catch(err => {
