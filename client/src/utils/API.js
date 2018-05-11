@@ -7,9 +7,9 @@ export default {
     return axios.get("api/users/profile");
   },
   getSkill: function(skill) {
-    return axios.get("/api/users/profile/" + skill + "");
+    return axios.get("/api/users/skills/" + skill);
   },
-  getBaseSkillsList: function() {
+  getSkillList: function() {
     return axios.get("/api/users/skills");
   }
 };
