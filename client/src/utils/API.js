@@ -10,6 +10,6 @@ export default {
     return axios.get("/api/users/skills/" + skill);
   },
   getSkillList: function() {
-    return axios.get("/api/users/");
+    return axios.get("/api/users/skills");
   }
 };
