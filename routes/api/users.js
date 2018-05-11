@@ -7,6 +7,9 @@ router
   .get(userController.findAll)
   .post(userController.create);
 
+  router
+    .route("/skills")
+    .get(userController.getSkillList);
 // Matches with "/api/users/:id"
 router
   .route("/:id")
@@ -15,6 +18,7 @@ router
   .delete(userController.remove);
 
 // Return users with searched skill
+
 router
   .route("/skills/:skill")
   .get(userController.getSkill);

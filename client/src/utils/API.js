@@ -6,10 +6,10 @@ export default {
   getRandomUser: function() {
     return axios.get("api/users/profile");
   },
-  getUsersOfSkill: function(skill) {
+  getSkill: function(skill) {
     return axios.get("/api/users/profile/" + skill + "");
   },
   getBaseSkillsList: function() {
-    return axios.get("/api/users/");
+    return axios.get("/api/users/skills");
   }
 };
