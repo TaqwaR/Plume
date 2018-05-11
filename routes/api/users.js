@@ -2,7 +2,7 @@ const router = require("express").Router();
 const userController = require("../../controllers/userController");
 
 // Matches with "/api/users"
-router.route("/profile/skill")
+router.route("/")
   .get(userController.findAll)
   .post(userController.create);
 
