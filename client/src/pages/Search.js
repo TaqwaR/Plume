@@ -29,7 +29,7 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    API.getUsersOfSkill(this.state.search)
+    API.getSkill(this.state.search)
       .then(res => {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
