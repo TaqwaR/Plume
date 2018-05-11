@@ -3,7 +3,7 @@ const db = require("../models");
 // Defining methods for the userController
 module.exports = {
   findAll: function(req, res) {
-    db.User
+    db.Users
       .find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
@@ -31,6 +31,13 @@ module.exports = {
     db.User
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  getSkill: function(req, res) {
+    db.User
+      .find({ skill: 'beekeeping' })
+      // .where('skill').equals('beekeeping')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
