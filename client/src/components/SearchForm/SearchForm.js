@@ -17,7 +17,7 @@ const SearchForm = props => (
         id="skill"
       />
       <datalist id="skills">
-        {props.skills.map(skill => <option value={skill} key={skill} />)}
+        {props.skills.map(skill => { console.log('skill', skill); return <option value={skill} key={skill} /> })}
       </datalist>
       <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">
         Search
