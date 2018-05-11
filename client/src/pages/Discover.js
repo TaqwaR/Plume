@@ -4,16 +4,37 @@ import Card from "../components/Card";
 import Alert from "../components/Alert";
 
 class Discover extends Component {
-  state = {
-    image: "",
-    match: false,
-    matchCount: 0
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      image: "",
+      match: false,
+      matchCount: 0
+    };
 
+  this.loadNextUser = this.loadNextUser.bind(this);
+}
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
-    this.loadNextDog();
+    API.getBaseSkillsList()
+      .then(res => {
+        console.log(res.data[0].image)
+
+    })
+      .catch(err => console.log(err));
   }
+
+  loadNextUser() {
+    API.getBaseSkillsList()
+      .then(res =>
+        {
+          this.setState({
+            image: res.data[0].image
+          })
+        }
+      )
+      .catch(err => console.log(err));
+  };
 
   handleBtnClick = event => {
     // Get the data-value of the clicked button
@@ -36,28 +57,20 @@ class Discover extends Component {
     }
     // Replace our component's state with newState, load the next dog image
     this.setState(newState);
-    this.loadNextDog();
+    this.loadNextUser();
   };
 
-  loadNextDog = () => {
-    API.getRandomDog()
-      .then(res =>
-        this.setState({
-          image: res.data.message
-        })
-      )
-      .catch(err => console.log(err));
-  };
+
 
   render() {
     return (
       <div>
         <h1 className="text-center">Make New Friends</h1>
         <h3 className="text-center">
-          Thumbs up on any pups you'd like to meet!
+          Thumbs up on any pups you would like to meet!
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
-        <h1 className="text-center">
+        <h1 className="text-center" onClick={this.loadNextUser}>
           Made friends with {this.state.matchCount} pups so far!
         </h1>
         <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">

@@ -33,5 +33,18 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  getSkillList: function(req, res) {
+    db.User
+      .find(req.query)
+      .select("skill")
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  getSkill: function(req, res) {
+    db.User
+      .find({ skill: req.params.skill })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };
