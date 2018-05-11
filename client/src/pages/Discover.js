@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Card from "../components/Card";
 import Alert from "../components/Alert";
+import image from './feathers.jpg';
 
 class Discover extends Component {
   state = {
@@ -10,6 +11,12 @@ class Discover extends Component {
     matchCount: 0
   };
 
+
+
+  var styles = {
+  
+  backgroundImage: 'url('+image+')'
+  };
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
     this.loadNextDog();
@@ -52,16 +59,16 @@ class Discover extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-center">Make New Friends</h1>
+        <h1 className="text-center">Skill Finder</h1>
         <h3 className="text-center">
-          Thumbs up on any pups you'd like to meet!
+          Thumbs up to match skills!
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
-        <h1 className="text-center">
-          Made friends with {this.state.matchCount} pups so far!
-        </h1>
+        {/* <h1 className="text-center">
+          Skill matched {this.state.matchCount} pups so far!
+        </h1> */}
         <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
-          Yay! That Pup Liked You Too!!!
+          Match - Notifcation Email Sent!
         </Alert>
       </div>
     );

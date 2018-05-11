@@ -3,6 +3,9 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  border-radius: 5px;
+  background-color: white;
+  border: black solid 3px;
 }
 
 .hero::after {
@@ -15,7 +18,7 @@
   left: 0;
   right: 0;
   background: black;
-  border-radius: .30px;
+
 }
 
 .hero * {
@@ -25,16 +28,18 @@
 
 .hero h1, .hero h2 {
   color: white;
+  font-family: Plumee, Helvetica, Arial, sans-serif;
 }
 
 .hero h1 {
-  font-size: 60px;
+  font-size: 105px;
   padding-top: 140px;
   margin-top: 0;
+  font-weight: bolder;
 }
 
 
 @font-face {
 font-family: Plumee;
-src: url(/Delicious-Roman.otf);
+src: url(Hero_Font1.ttf);
 }
