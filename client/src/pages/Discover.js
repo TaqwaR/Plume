@@ -42,10 +42,8 @@ class Discover extends Component {
   loadNextUser = () => {
     API.getRandomUser()
       .then(res =>
-        this.setState({
-          image: res.data.message
-        })
-      )
+        this.setState({ image: res.data.map(person => person.skill)})
+
       .catch(err => console.log(err));
   };
 
