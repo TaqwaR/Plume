@@ -2,7 +2,8 @@ const router = require("express").Router();
 const userController = require("../../controllers/userController");
 
 // Matches with "/api/users"
-router.route("/")
+router
+  .route("/")
   .get(userController.findAll)
   .post(userController.create);
 
@@ -15,7 +16,7 @@ router
 
 // Return users with searched skill
 router
-  .route("/skill")
-  .get(userController.getSkills);
+  .route("/skills/:skill")
+  .get(userController.getSkill);
 
 module.exports = router;
