@@ -18,7 +18,7 @@ class Search extends Component {
     API.getBaseSkillsList()
       .then(res => {
         console.log(res.data)
-        this.setState({ skills: res.data.message })
+        this.setState({ skills: res.data })
     })
       .catch(err => console.log(err));
   }
