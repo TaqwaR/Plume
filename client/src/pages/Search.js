@@ -15,7 +15,6 @@ class Search extends Component {
       search: "",
       skills: [],
       results: [],
-      error: ""
     };
 
   this.componentDidMount = this.componentDidMount.bind(this);
@@ -33,6 +32,7 @@ class Search extends Component {
 
   handleInputChange = event => {
     this.setState({ search: event.target.value });
+    console.log(this.state.search);
   };
 
   handleFormSubmit = event => {
