@@ -1,0 +1,10 @@
+
+.container {
+  font-family: Welcome, Helvetica, Arial, sans-serif;
+  
+}
+
+@font-face {
+font-family: Welcome;
+src: url(Cicle_Fina.ttf);
+}
