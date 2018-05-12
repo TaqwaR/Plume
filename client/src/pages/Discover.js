@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Card from "../components/Card";
 import Alert from "../components/Alert";
-import image from './feathers.jpg';
 
 class Discover extends Component {
   constructor(props) {
@@ -19,7 +18,7 @@ class Discover extends Component {
 
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
-    API.getBaseSkillsList()
+    API.getSkillList()
       .then(res => {
         console.log(res.data[0].image)
 
