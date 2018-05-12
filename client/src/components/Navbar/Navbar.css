@@ -1,3 +1,19 @@
 nav.navbar.navbar-default {
+
   margin-bottom: 0;
+  border: CadetBlue 3px solid;
+}
+
+nav {
+  font-family: Navbar, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+}
+
+.navbar-brand {
+  font-size: 20px;
+}
+
+@font-face {
+font-family: Navbar;
+src: url(Cicle_Fina.ttf);
 }
