@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Card from "../components/Card";
 import Alert from "../components/Alert";
-import image from './feathers.jpg';
+// import image from './feathers.jpg';
 
 class Discover extends Component {
   constructor(props) {
@@ -17,30 +17,35 @@ class Discover extends Component {
   this.loadNextUser = this.loadNextUser.bind(this);
 }
 
+
+
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
-    API.getBaseSkillsList()
+    API.getSkillList()
       .then(res => {
         console.log(res.data[0].image)
-
+        this.setState({
+          image: res.data[0].image
+        })
     })
       .catch(err => console.log(err));
   }
 
   loadNextUser() {
-    API.getBaseSkillsList()
+    const imageNum = 0;
+    API.getSkillList()
       .then(res =>
         {
-
-          if (this.state.image === "testifstatement") {
+          if (this.state.image === res.data[imageNum].image) {
             console.log('testifstatement')
-          } else {
+            // imageNum = imageNum + 1;
+          }
             this.setState({
-              image: res.data[0].image
+              image: res.data[imageNum].image
             })
           }
 
-        }
+
       )
       .catch(err => console.log(err));
   };
@@ -79,9 +84,9 @@ class Discover extends Component {
           Thumbs up to match skills!
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
-        {/* <h1 className="text-center" onClick={this.loadNextUser}>
+        <h1 className="text-center" onClick={this.loadNextUser}>
           Skill matched with {this.state.matchCount} pups so far!
-        </h1> */}
+        </h1>
 
         <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
           Match - Notifcation Email Sent!
