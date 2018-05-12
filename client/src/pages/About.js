@@ -10,7 +10,7 @@ const About = () => (
   <div className="aboutcontain">
     <Hero backgroundImage="https://i.imgur.com/eTd1gC9.jpg">
       <h1>Plume</h1>
-      <h2>You're just another feather in the butt of a peacock.</h2>
+      <h2>Strut Your Skills.</h2>
     </Hero>
 
     <Container style={{ marginTop: 30 }}>

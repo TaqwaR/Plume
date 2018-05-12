@@ -5,21 +5,13 @@ import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
 import Alert from "../components/Alert";
 
-
-
-
 class Search extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
+  state = {
       search: "",
       skills: [],
       results: [],
+      error: ""
     };
-
-  this.componentDidMount = this.componentDidMount.bind(this);
-  }
-
 
   // When the component mounts, get a list of all available base breeds and update this.state.breeds
   componentDidMount() {
@@ -42,7 +34,11 @@ class Search extends Component {
         if (res.data.status === "error") {
           throw new Error(res.data.map(person => person.skill ));
         }
+
         this.setState({ results: res.data.map(person => person.skill ), error: "" });
+        console.log("RESULTS: ", this.state.results);
+        console.log("MATCHING IMAGE: ", res.data[0].image);
+        // this.setState({ results: res.data[0].image })
       })
       .catch(err => this.setState({ error: err.message }));
   };
