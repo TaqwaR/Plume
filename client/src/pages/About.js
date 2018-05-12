@@ -3,13 +3,16 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
+import "./Pages.css"
+
 
 const About = () => (
-  <div>
+  <div className="aboutcontain">
     <Hero backgroundImage="https://i.imgur.com/eTd1gC9.jpg">
       <h1>Plume</h1>
       <h2>You're just another feather in the butt of a peacock.</h2>
     </Hero>
+
     <Container style={{ marginTop: 30 }}>
       <Row>
         <Col size="md-12">
@@ -31,7 +34,6 @@ const About = () => (
             Praesent suscipit orci neque, vestibulum tincidunt augue tincidunt non. Duis consequat
             mattis tortor vitae mattis.
           </p>
-
         </Col>
       </Row>
     </Container>

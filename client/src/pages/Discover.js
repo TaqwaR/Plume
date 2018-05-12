@@ -2,6 +2,19 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Card from "../components/Card";
 import Alert from "../components/Alert";
+import "./Discover.css"
+
+
+// let imgUrl = './newfeathers.png'
+// let styles = {
+// root: {
+//
+//     background: 'url('+ imgUrl + ') noRepeat center center fixed',
+//     backgroundSize: 'cover'
+//
+// },
+
+
 
 class Discover extends Component {
   constructor(props) {
@@ -14,9 +27,9 @@ class Discover extends Component {
     this.imageNum = 0;
 
 
+
   this.loadNextUser = this.loadNextUser.bind(this);
 }
-
 
 
   // When the component mounts, load the next dog to be displayed
@@ -83,9 +96,11 @@ class Discover extends Component {
           Thumbs up to match skills!
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
-        <h1 className="text-center" onClick={this.loadNextUser}>
-          Skill matched with {this.state.matchCount} pups so far!
-        </h1>
+
+        <h3 className="text-center" onClick={this.loadNextUser}>
+          Skill matched with {this.state.matchCount} skilled people so far!
+        </h3>
+
 
         <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
           Match - Notifcation Email Sent!
