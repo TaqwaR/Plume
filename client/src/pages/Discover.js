@@ -12,6 +12,7 @@ class Discover extends Component {
       match: false,
       matchCount: 0
     };
+    this.imageNum = 0;
 
 
   this.loadNextUser = this.loadNextUser.bind(this);
@@ -32,16 +33,15 @@ class Discover extends Component {
   }
 
   loadNextUser() {
-    const imageNum = 0;
     API.getSkillList()
       .then(res =>
         {
-          if (this.state.image === res.data[imageNum].image) {
+          if (this.state.image === res.data[this.imageNum].image) {
             console.log('testifstatement')
-            // imageNum = imageNum + 1;
+            this.imageNum = this.imageNum + 1;
           }
             this.setState({
-              image: res.data[imageNum].image
+              image: res.data[this.imageNum].image
             })
           }
 
