@@ -28,9 +28,15 @@ class Discover extends Component {
     API.getBaseSkillsList()
       .then(res =>
         {
-          this.setState({
-            image: res.data[0].image
-          })
+
+          if (this.state.image === "testifstatement") {
+            console.log('testifstatement')
+          } else {
+            this.setState({
+              image: res.data[0].image
+            })
+          }
+
         }
       )
       .catch(err => console.log(err));
