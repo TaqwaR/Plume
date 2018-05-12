@@ -24,17 +24,22 @@ class Discover extends Component {
       match: false,
       matchCount: 0
     };
+    this.imageNum = 0;
+
 
 
   this.loadNextUser = this.loadNextUser.bind(this);
 }
+
 
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
     API.getSkillList()
       .then(res => {
         console.log(res.data[0].image)
-
+        this.setState({
+          image: res.data[0].image
+        })
     })
       .catch(err => console.log(err));
   }
@@ -43,10 +48,16 @@ class Discover extends Component {
     API.getSkillList()
       .then(res =>
         {
-          this.setState({
-            image: res.data[0].image
-          })
-        }
+          if (this.state.image === res.data[this.imageNum].image) {
+            console.log('testifstatement')
+            this.imageNum = this.imageNum + 1;
+          }
+            this.setState({
+              image: res.data[this.imageNum].image
+            })
+          }
+
+
       )
       .catch(err => console.log(err));
   };
@@ -85,9 +96,11 @@ class Discover extends Component {
           Thumbs up to match skills!
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
+
         <h3 className="text-center" onClick={this.loadNextUser}>
           Skill matched with {this.state.matchCount} skilled people so far!
         </h3>
+
 
         <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
           Match - Notifcation Email Sent!

@@ -25,12 +25,10 @@ class Search extends Component {
   // When the component mounts, get a list of all available base breeds and update this.state.breeds
   componentDidMount() {
     API.getSkillList()
-      .then(res => {
+      .then(res => this.setState({ skills: res.data.map(person => person.skill )}))
         // console.log(this.state.results),
         // console.log(res.data)
-        this.setState({ skills: res.data.map(person => person.skill) })
-    })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
   }
 
   handleInputChange = event => {
@@ -42,9 +40,9 @@ class Search extends Component {
     API.getSkill(this.state.search)
       .then(res => {
         if (res.data.status === "error") {
-          throw new Error(res.data.message);
+          throw new Error(res.data.map(person => person.skill ));
         }
-        this.setState({ results: res.data.message, error: "" });
+        this.setState({ results: res.data.map(person => person.skill ), error: "" });
       })
       .catch(err => this.setState({ error: err.message }));
   };
