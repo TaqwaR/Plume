@@ -37,7 +37,7 @@ module.exports = {
   getSkillList: function(req, res) {
     db.User
       .find(req.query)
-      .select("skill")
+      .select("skill image")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
