@@ -10,6 +10,7 @@ router
 router
   .route("/skills")
   .get(userController.getSkillList);
+  
 // Matches with "/api/users/:id"
 router
   .route("/:id")
